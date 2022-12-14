@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node/dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "start": "node/dist/server/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server/index.js\"",
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
   },
   "keywords": [],
@@ -16,7 +16,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "express-prometheus-middleware": "^1.2.0"
+    "express-prometheus-middleware": "^1.2.0",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
@@ -44,5 +45,10 @@
     "superagent": "^8.0.6",
     "supertest": "^6.3.3",
     "typescript": "^4.9.4"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

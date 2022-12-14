@@ -1,6 +1,6 @@
 interface Response {
   error: string | null;
-  data: {};
+  data: any;
 }
 
 export const fetcher = async (
