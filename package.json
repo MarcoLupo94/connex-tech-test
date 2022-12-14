@@ -16,7 +16,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-prometheus-middleware": "^1.2.0",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "react-spinners": "^0.13.7"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",

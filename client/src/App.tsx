@@ -4,22 +4,38 @@ import './App.css';
 import MetricsComponent from './components/MetricsComponent';
 import TimeComponent from './components/TimeComponent';
 import moment from 'moment';
+import SpinnerComponent from './components/SpinnerComponent';
 
 function App() {
   const time = useRef<number | string>(0);
   const [metrics, setMetrics] = useState('');
   const [timeDifference, setTimeDifference] = useState('');
+  const [loadingMetrics, setLoadingMetrics] = useState(false);
+  const [loadingTime, setLoadingTime] = useState(false);
 
   const loadData = () => {
-    Promise.all([getMetrics(), getTime()])
-      .then((values) => {
-        setMetrics(values[0].data);
-        time.current = values[1].data.properties.epoch.description;
-      })
-      .catch((error) => {
-        time.current = 'Something went wrong...';
-        setMetrics('Something went wrong...');
-      });
+    setLoadingMetrics(true);
+    setLoadingTime(true);
+
+    loadMetrics();
+    loadTime();
+  };
+  const loadMetrics = async () => {
+    try {
+      const res = await getMetrics();
+      setMetrics(res.data);
+      setLoadingMetrics(false);
+    } catch (error) {
+      setMetrics('Something went wrong...');
+    }
+  };
+  const loadTime = async () => {
+    try {
+      const res = await getTime();
+      time.current = res.data.properties.epoch.description;
+    } catch (error) {
+      time.current = 'Something went wrong...';
+    }
   };
   const calculateTimeDifference = () => {
     if (typeof time.current !== 'string') {
@@ -27,6 +43,7 @@ function App() {
         .utc()
         .format('HH:mm:ss');
       setTimeDifference(difference);
+      setLoadingTime(false);
     }
     return;
   };
@@ -39,8 +56,16 @@ function App() {
 
   return (
     <div className="App">
-      <TimeComponent time={time.current} timeDifference={timeDifference} />
-      <MetricsComponent metrics={metrics} />
+      {loadingTime ? (
+        <SpinnerComponent />
+      ) : (
+        <TimeComponent time={time.current} timeDifference={timeDifference} />
+      )}
+      {loadingMetrics ? (
+        <SpinnerComponent />
+      ) : (
+        <MetricsComponent metrics={metrics} />
+      )}
     </div>
   );
 }

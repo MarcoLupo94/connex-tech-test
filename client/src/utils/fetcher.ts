@@ -17,6 +17,8 @@ export const fetcher = async (
         Authorization: `Bearer ${token}`
       }
     });
+    console.log(response.body);
+
     const json = await response.json();
     return { error: null, data: json };
   } catch (e: any) {

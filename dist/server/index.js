@@ -8,12 +8,10 @@ const cors_1 = __importDefault(require("cors"));
 const router_1 = __importDefault(require("./router"));
 const express_prometheus_middleware_1 = __importDefault(require("express-prometheus-middleware"));
 const middleware_1 = require("./middleware");
-require('dotenv').config();
 const corsOption = {
     origin: ['http://localhost:3000']
 };
 const app = (0, express_1.default)();
-// ADD MIDDLEWARE TO FILTER UNAUTH TOKENS AND RESPOND WITH 403
 app.use(express_1.default.json());
 app.use((0, cors_1.default)(corsOption));
 app.use(middleware_1.tokenMiddleware);
