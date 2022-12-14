@@ -1,17 +1,19 @@
 interface TimeComponentProps {
-  time: any;
+  time: number | string;
+  timeDifference: string;
 }
 
 const TimeComponent = (props: TimeComponentProps) => {
   return (
     <section>
       <h2>Time</h2>
-      {props.time.properties ? (
-        <p>{props.time.properties.epoch.description}</p>
+      {props.time ? <p>{props.time}</p> : <p>Loading...</p>}{' '}
+      <p>Local Machine Time difference</p>
+      {props.timeDifference ? (
+        <p>{props.timeDifference}</p>
       ) : (
         <p>Loading...</p>
       )}{' '}
-      <p>Local Machine Time difference</p>
     </section>
   );
 };

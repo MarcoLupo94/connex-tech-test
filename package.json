@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node/dist/server/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server/index.js\"",
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
   },
