@@ -23,7 +23,7 @@ function App() {
   const loadMetrics = async () => {
     try {
       const res = await getMetrics();
-      setMetrics(res.data);
+      setMetrics(res);
       setLoadingMetrics(false);
     } catch (error) {
       setMetrics('Something went wrong...');
@@ -32,7 +32,7 @@ function App() {
   const loadTime = async () => {
     try {
       const res = await getTime();
-      time.current = res.data.properties.epoch.description;
+      time.current = res.properties.epoch.description;
     } catch (error) {
       time.current = 'Something went wrong...';
     }
