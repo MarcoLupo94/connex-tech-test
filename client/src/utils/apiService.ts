@@ -1,10 +1,17 @@
 import { fetcher } from './fetcher';
-const { REACT_APP_API_URL, REACT_APP_TOKEN } = process.env;
 
 export const getTime = async () => {
-  return await fetcher(REACT_APP_API_URL + 'time', 'GET', REACT_APP_TOKEN);
+  return await fetcher(
+    'http://localhost:8080/' + 'time',
+    'GET',
+    'mysecrettoken'
+  );
 };
 
 export const getMetrics = async () => {
-  return await fetcher(REACT_APP_API_URL + 'metrics', 'GET', REACT_APP_TOKEN);
+  return await fetcher(
+    'http://localhost:8080/' + 'metrics',
+    'GET',
+    'mysecrettoken'
+  );
 };

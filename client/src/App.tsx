@@ -8,16 +8,21 @@ function App() {
   const [time, setTime] = useState('');
   const [metrics, setMetrics] = useState('');
 
-  useEffect(() => {
+  const loadData = () => {
     Promise.all([getMetrics(), getTime()])
       .then((values) => {
-        setTime(values[0].data);
-        setMetrics(values[1].data);
+        setMetrics(values[0].data);
+        setTime(values[1].data);
       })
       .catch((error) => {
         setTime('Something went wrong...');
         setMetrics('Something went wrong...');
       });
+  };
+
+  useEffect(() => {
+    loadData();
+    setInterval(loadData, 30000);
   }, []);
 
   return (

@@ -20,6 +20,7 @@ export const fetcher = async (
     const json = await response.json();
     return { error: null, data: json };
   } catch (e: any) {
+    console.log(e);
     return { error: e, data: {} };
   }
 };

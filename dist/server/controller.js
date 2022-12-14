@@ -7,7 +7,16 @@ const getTime = (req, res) => {
     try {
         if (token === 'mysecrettoken') {
             res.status(200);
-            res.send('<h1>Hello World From the Typescript Server!</h1>');
+            res.send({
+                properties: {
+                    epoch: {
+                        description: Date.now(),
+                        type: 'number'
+                    }
+                },
+                required: ['epoch'],
+                type: 'object'
+            });
         }
         else {
             throw new Error('Wrong AccessCredentials');
