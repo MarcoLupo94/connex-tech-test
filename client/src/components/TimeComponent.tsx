@@ -7,7 +7,7 @@ const TimeComponent = (props: TimeComponentProps) => {
   return (
     <section>
       <h2>Time</h2>
-      <p>Local Machine Time difference</p>
+      <p>{props.time}</p>
       <p>{props.timeDifference}</p>
     </section>
   );
