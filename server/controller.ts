@@ -1,6 +1,17 @@
 // Response Time
 import { Request, Response } from 'express';
 
+export interface Data {
+  properties: {
+    epoch: {
+      description: number;
+      type: string;
+    };
+  };
+  required: string[];
+  type: string;
+}
+
 export const getTime = (req: Request, res: Response) => {
   try {
     res.status(200);

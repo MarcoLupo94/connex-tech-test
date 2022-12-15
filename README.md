@@ -24,7 +24,7 @@ Used node v19.
 
 3. In the root folder you can run `npm run dev` to start the server.
 4. To launch the client you can run `npm run start` from the client folder.
-5. Tests suits for the all app can be used by `npm run test` from the root folder.
+5. Tests suits for the serve can be used by `npm run test server/__tests__` while tests for the client can be run by `npm run test` from the client folder.
 
 ## Libraries
 

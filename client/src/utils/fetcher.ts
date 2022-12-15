@@ -19,7 +19,6 @@ export const fetcher = async (
     });
     return { error: null, data: response };
   } catch (e: any) {
-    console.log(e);
     return { error: e, data: {} };
   }
 };

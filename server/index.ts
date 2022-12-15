@@ -17,6 +17,8 @@ app.use(router);
 
 const port = process.env.PORT || 8080;
 
-app.listen(port, () => {
-  console.log(`App listening on port: ${port}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => console.log(`Listening on port ${port}`))
+}
+
+export default app;

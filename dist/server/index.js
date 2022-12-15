@@ -18,6 +18,7 @@ app.use(middleware_1.tokenMiddleware);
 app.use((0, express_prometheus_middleware_1.default)({ metricsPath: '/metrics', collectDefaultMetrics: true }));
 app.use(router_1.default);
 const port = process.env.PORT || 8080;
-app.listen(port, () => {
-    console.log(`App listening on port: ${port}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => console.log(`Listening on port ${port}`));
+}
+exports.default = app;
