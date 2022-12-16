@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/supertest": "^2.0.12",
+    "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-prometheus-middleware": "^1.2.0",
@@ -27,7 +28,6 @@
     "@types/express-prometheus-middleware": "^1.2.1",
     "@types/jest": "^29.2.4",
     "@types/node": "^18.11.15",
-    "concurrently": "^7.6.0",
     "eslint": "^8.29.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-node": "^4.1.0",
