@@ -6,9 +6,15 @@ interface TimeComponentProps {
 const TimeComponent = (props: TimeComponentProps) => {
   return (
     <section>
-      <h2>Time</h2>
-      <p>{props.time}</p>
-      <p>{props.timeDifference}</p>
+      <div style={{ position: 'fixed' }}>
+        <h2>Time</h2>
+        <p>
+          Server Time: <b>{props.time}</b>
+        </p>
+        <p>
+          Local machine difference: <b>{props.timeDifference}</b>
+        </p>
+      </div>
     </section>
   );
 };
