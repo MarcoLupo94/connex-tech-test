@@ -1,15 +1,16 @@
-import moment from 'moment';
+const convertTimeToString = (epochTime: number) => {
+  return new Date(epochTime).toISOString().slice(11, 19);
+};
 
-//
 export const calculateTimeDifference = (
   time: number | string,
   setTimeDifference: React.Dispatch<React.SetStateAction<string>>,
   setLoadingTime: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   if (typeof time !== 'string') {
-    const difference = moment(Date.now() - time)
-      .utc()
-      .format('HH:mm:ss');
+    const epoch = Date.now() - time;
+    const difference = convertTimeToString(epoch);
+
     setTimeDifference(difference);
     setLoadingTime(false);
     return difference;

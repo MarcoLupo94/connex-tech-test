@@ -31,8 +31,3 @@ It's suggested enabling a security policy, we can do that here https://github.co
 3. In the root folder you can run `npm run dev` to start the server.
 4. To launch the client you can run `npm run start` from the client folder.
 5. Tests suits for the serve can be used by `npm run test server/__tests__` while tests for the client can be run by `npm run test` from the client folder.
-
-## Libraries
-
-- [Jest](https://jestjs.io/docs/testing-frameworks)
-- [MomentJs](https://momentjs.com//)

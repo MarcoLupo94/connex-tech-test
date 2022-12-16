@@ -2,7 +2,7 @@ import { fetcher } from './fetcher';
 
 export const getTime = async () => {
   const response = await fetcher(
-    'http://localhost:8080/' + 'time',
+    'http://localhost:8080/time',
     'GET',
     'mysecrettoken'
   );
@@ -11,7 +11,7 @@ export const getTime = async () => {
 
 export const getMetrics = async () => {
   const response = await fetcher(
-    'http://localhost:8080/' + 'metrics',
+    'http://localhost:8080/metrics',
     'GET',
     'mysecrettoken'
   );
